@@ -2,4 +2,4 @@
 Some notes for tensorflow API
 
 ToDos
-- [How to get the number of tokens in sentences/batch](L1.md)
+- [如何在batch中获得tokens的数量](L1.md)
