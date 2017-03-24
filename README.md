@@ -9,3 +9,5 @@ Tensorflow API 笔记
 
 - [零散](Doc/supplementary.md)
 - [神经网络相关函数](Doc/activeFunction.md)
+- [GPU](Doc/GPU.md)
+- [dropout](Doc/dropout.md)

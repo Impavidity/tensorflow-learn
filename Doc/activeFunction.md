@@ -51,4 +51,83 @@ L2 Loss: output = sum(t ** 2)/2
 
 #### tf.nn.log_poisson_loss(targets, log_input, compute_full_loss=False, name=None)
 
+#### tf.nn.softmax(logits, dim=-1, name=None)
+
+计算softmax.
+对于每一个batch i和class j, 我们有
+softmax = exp(logits) / reduce_sum(exp(logits), dim)
+
+- 参数:
+
+  - logits: 非空tensor. 必须是一下数据类型: half, float32, float64.
+  - dim: 要做softmax的维度, 通常是最后一维, 即-1
+  - name: 可选.
+
+- 返回:
+
+  - A tensor. 一样的数据类型和shape
+
+#### tf.nn.log_softmax(logits, dim=-1, name=None)
+
+计算log softmax.
+对于每一个batch i和class j, 我们有
+logsoftmax = log(softmax) = logits - log(reduce_sum(exp(logits), dim))
+
+- 参数:
+
+  - logits: 非空tensor. 必须是一下数据类型: half, float32, float64.
+  - dim: 要做softmax的维度, 通常是最后一维, 即-1
+  - name: 可选.
+
+- 返回:
+
+  - A tensor. 一样的数据类型和shape
+
+
+### Tensor Transformations
+
+#### tf.transpose(a, perm=None, name='transpose')
+
+根据perm来转置a.
+对于返回的shape, 在第i维上的值是输入tensor的第perm[i]维的值. 如果perm未给定, 则设置为(n-1, ..., 0)
+
+Example:
+
+```
+# 'x' is [[1 2 3]
+#         [4 5 6]]
+tf.transpose(x) ==> [[1 4]
+                     [2 5]
+                     [3 6]]
+
+# Equivalently
+tf.transpose(x, perm=[1, 0]) ==> [[1 4]
+                                  [2 5]
+                                  [3 6]]
+
+# 'perm' is more useful for n-dimensional tensors, for n > 2
+# 'x' is   [[[1  2  3]
+#            [4  5  6]]
+#           [[7  8  9]
+#            [10 11 12]]]
+# Take the transpose of the matrices in dimension-0
+tf.transpose(x, perm=[0, 2, 1]) ==> [[[1  4]
+                                      [2  5]
+                                      [3  6]]
+
+                                     [[7 10]
+                                      [8 11]
+                                      [9 12]]]
+```
+
+- 参数:
+
+  - a: A tensor
+  - perm: 一个list, 记录着置换
+  - name: 可选
+
+- 返回:
+
+  - a tensor
+
 
