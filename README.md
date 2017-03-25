@@ -11,3 +11,4 @@ Tensorflow API 笔记
 - [神经网络相关函数](Doc/activeFunction.md)
 - [GPU](Doc/GPU.md)
 - [dropout](Doc/dropout.md)
+- [优化](Doc/optimizer.md)
